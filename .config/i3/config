@@ -43,7 +43,7 @@ bindsym $mod+Shift+q kill
 #bindsym $mod+d exec rofi -show run -theme royal_sky
 
 #start dmenu with .desktop only apps
-bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -i -b -l 10 -fn 'Liberation Mono Bold 11' -nb '#000000' -nf '#FFFFFF' -sb '#C5EBC5' -sf '#000000'"
+bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -i -b -l 8 -p 'run:' -fn 'Liberation Mono Bold 11' -nb '#000000' -nf '#FFFFFF' -sb '#C5EBC5' -sf '#000000'"
 
 # change focus
 bindsym $mod+j focus left
