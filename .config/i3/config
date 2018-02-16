@@ -22,7 +22,10 @@ gaps inner 7
 gaps outer 2
 
 # Autostart compton
-exec compton -CGb
+exec compton -CGbf
+
+# Autostart redshift 
+exec redshift -O 4700
 
 #printscreen to take screenshot
 bindsym Print exec screenshot
@@ -37,13 +40,14 @@ bindsym $mod+Return exec gnome-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run -b -l 5 -fn 'Liberation Mono Bold 11' -nb '#000000' -nf '#FFFFFF' -sb '#C5EBC5' -sf '#000000'
+#bindsym $mod+d exec dmenu_run -i -x 415 -y 330 -w 450 -h 20 -l 4 -nb '#201F1D' -nf '#eddec9' -sb '#8F3724' -sf '#eddec9'
 
 # start rofi instead
 #bindsym $mod+d exec rofi -show run -theme royal_sky
 
-#start dmenu with .desktop only apps
-bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -i -b -l 8 -p 'run:' -fn 'Liberation Mono Bold 11' -nb '#000000' -nf '#FFFFFF' -sb '#C5EBC5' -sf '#000000'"
+#bindsym $mod+d exec dmenu_run -i -b -x 710 -y 300 -w 400 -dim .65 -l 10 -p 'run:' -fn 'Liberation Mono Bold 18' -nb '#000000' -nf '#FFFFFF' -sb '#C5EBC5' -sf '#000000'
+
+bindsym $mod+d exec i3-dmenu-desktop --dmenu="dmenu -i -b -x 720 -y 430 -w 400 -dim .65 -l 10 -p 'run:' -fn 'Liberation Mono Bold 18' -nb '#000000' -nf '#FFFFFF' -sb '#C5EBC5' -sf '#000000'"
 
 # change focus
 bindsym $mod+j focus left
@@ -156,9 +160,7 @@ mode "resize" {
     bindsym $mod+r  mode "default"
 }
 
-##
-#gaps mode
-##
+
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -195,9 +197,35 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-##
-#restart/shutdown menu
-##
+# resize window (you can also use the mouse for that)
+#mode "resize" {
+#        # These bindings trigger as soon as you enter the resize mode
+#
+#        # Pressing left will shrink the window’s width.
+#        # Pressing right will grow the window’s width.
+#        # Pressing up will shrink the window’s height.
+#        # Pressing down will grow the window’s height.
+#        bindsym j resize shrink width 10 px or 10 ppt
+#        bindsym l resize grow height 10 px or 10 ppt
+#        bindsym k resize shrink height 10 px or 10 ppt
+#        bindsym ; resize grow width 10 px or 10 ppt
+#
+#        # same bindings, but for the arrow keys
+#        bindsym Left resize shrink width 10 px or 10 ppt
+#        bindsym Down resize shrink height 10 px or 10 ppt
+#        bindsym Up resize grow height 10 px or 10 ppt
+#        bindsym Right resize grow width 10 px or 10 ppt
+#
+#        # back to normal: Enter or Escape
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#}
+#
+#bindsym $mod+r mode "resize"
+
+
+## restart/shutdown menu
+
 set $sysmenu "system:  [l]ogout [r]eboot [s]hutdown"
 bindsym $mod+Delete      mode $sysmenu
 
@@ -209,6 +237,7 @@ mode $sysmenu {
     bindsym Return    mode "default"
     bindsym Escape    mode "default"
 }
+
 
 # color defines for peppermint styled i3
 set $bg     #4C4C4C
