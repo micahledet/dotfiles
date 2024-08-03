@@ -10,14 +10,15 @@ cmp.setup({
     },
     window = {
         -- uncomment the following if you want bordered completion options
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
     },
     mapping = cmp.mapping.preset.insert({
 	    ['<C-p>'] = cmp.mapping.select_prev_item({select = true}),
 	    ['<C-n>'] = cmp.mapping.select_next_item({select = true}),
-	    ['<C-Space>'] = cmp.mapping.complete(),
-	    ['<C-y>'] = cmp.mapping.confirm({select = true}),
+	    ['<C-Tab>'] = cmp.mapping.complete(),
+	    -- ['<C-y>'] = cmp.mapping.confirm({select = true}),
+	    ['<CR>'] = cmp.mapping.confirm({select = true})
     }),
     sources = cmp.config.sources({
         {name = 'nvim_lsp'},
