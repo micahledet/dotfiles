@@ -1,0 +1,9 @@
+prompt=
+allow_images=false
+insensitive=true
+matching=fuzzy
+no_actions=true
+location=center
+columns=3
+width=800
+height=450
