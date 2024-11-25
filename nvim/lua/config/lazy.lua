@@ -43,6 +43,9 @@ local plugins = {
 
     -- rainbow delimiters
     { 'HiPhish/rainbow-delimiters.nvim' },
+
+    -- Auto Pairs
+    { "windwp/nvim-autopairs" },
 }
 
 require("lazy").setup(plugins, {})
