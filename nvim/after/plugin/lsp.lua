@@ -46,7 +46,10 @@ lspconfig.lua_ls.setup({
 			},
 			workspace = {
 				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = {
+                    vim.api.nvim_get_runtime_file("", true),
+                    "${3rd}/luv/library",
+                },
 			},
 			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {
@@ -55,3 +58,8 @@ lspconfig.lua_ls.setup({
 		},
 	},
 })
+
+
+lspconfig.hls.setup {
+  filetypes = { 'haskell', 'lhaskell', 'cabal'},
+}

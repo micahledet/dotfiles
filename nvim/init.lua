@@ -22,6 +22,8 @@ vim.opt.clipboard = 'unnamedplus'
 -- keep signcolumn on by default
 --vim.opt.signcolumn = 'yes'
 
+-- hide -- MODE -- from below lualine
+vim.opt.showmode = false
 
 -- show which line your cursor is on
 vim.opt.cursorline = true
@@ -37,7 +39,7 @@ vim.opt.smartcase = true
 -- fast update time
 vim.opt.updatetime = 50
 
--- color column to 80 characters
+-- show column at 80 characters
 vim.opt.colorcolumn = "80"
 
 -- require lazy.nvim package manager config file

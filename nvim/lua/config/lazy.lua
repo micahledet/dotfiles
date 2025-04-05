@@ -16,22 +16,28 @@ vim.g.mapleader = " " -- the leader key is used in many keymaps,
 
 
 local plugins = {
-    "nvim-lua/plenary.nvim",
+    {"nvim-lua/plenary.nvim"},
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-    {"nvim-telescope/telescope.nvim", tag = '0.1.6',
+    {"nvim-telescope/telescope.nvim",
+        --tag = '0.1.6',
         requires = { {"nvim-lua/plenary.nvim"}}},
     {"nvim-telescope/telescope-file-browser.nvim",
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }},
-    {"ThePrimeagen/harpoon", branch = "harpoon2",
-        dependencies = {"nvim-lua/plenary.nvim"}},
+    --{"ThePrimeagen/harpoon", 
+        --branch = "harpoon2",
+        --dependencies = {"nvim-lua/plenary.nvim"}},
     {"mbbill/undotree"},
     {"tpope/vim-fugitive"},
 
     --lsp configuration
     {"neovim/nvim-lspconfig"}, --lsp configs
+    {"onsails/lspkind.nvim"}, -- pictograms and menu formatting
     {"hrsh7th/cmp-nvim-lsp"}, -- autocompletion
     {"hrsh7th/nvim-cmp"}, --additional autocompletion
-    {"L3MON4D3/LuaSnip", version = "v2.*", build = "make install_jsregexp", dependencies = {'saadparwaiz1/cmp_luasnip','rafamadriz/friendly-snippets'}}, --snippet engine
+    {"L3MON4D3/LuaSnip",
+        --version = "v2.*",
+        build = "make install_jsregexp",
+        dependencies = {'saadparwaiz1/cmp_luasnip','rafamadriz/friendly-snippets'}}, --snippet engine
     {"williamboman/mason.nvim"}, --lsp package manager
     {"williamboman/mason-lspconfig.nvim"}, --lsp package manager configs
 
@@ -39,13 +45,19 @@ local plugins = {
     {'nyoom-engineering/oxocarbon.nvim'},
 
     -- indent lines 
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    { "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {} },
 
     -- rainbow delimiters
     { 'HiPhish/rainbow-delimiters.nvim' },
 
     -- Auto Pairs
     { "windwp/nvim-autopairs" },
+
+    -- lualine status line replacement
+    {'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }}
 }
 
 require("lazy").setup(plugins, {})
