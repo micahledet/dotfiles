@@ -8,9 +8,11 @@ vim.api.nvim_set_hl(0, "@keyword.operator.javascript", { fg = "#be95ff"})
 vim.api.nvim_set_hl(0, "@keyword.conditional.javascript", { fg = "#08bdba", bold=true})
 --vim.api.nvim_set_hl(0, "comment", { fg = "#4F5258", italic=true })
 vim.api.nvim_set_hl(0, "@lsp.mod.global.lua", { fg = "#ff7eb6" })
-vim.api.nvim_set_hl(0, "markdownH1", { fg = "#b3f6c0", bold=true})
+vim.api.nvim_set_hl(0, "@markup.heading.1.markdown", { fg = "#b3f6c0", bold=true})
 vim.api.nvim_set_hl(0, "markdownH1Delimiter", { fg = "#b3f6c0", bold=true})
 
+-- border color for hint windows
+vim.api.nvim_set_hl(0, "CustomFloatBorder", { fg = "#be95f0"})
 
 --vim.api.nvim_set_hl(0, "LineNr", { bg = "#262626" })
 

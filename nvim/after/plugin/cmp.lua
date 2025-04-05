@@ -1,6 +1,13 @@
 local cmp = require("cmp")
-
+local lspkind = require('lspkind')
 require('luasnip.loaders.from_vscode').lazy_load()
+
+local function get_custom_border()
+    return cmp.config.window.bordered({
+        winhighlight = cmp.config.window.bordered().winhighlight:gsub(':FloatBorder', ':CustomFloatBorder'),
+        scrollbar = false,
+    })
+end
 
 cmp.setup({
     snippet = {
@@ -10,8 +17,24 @@ cmp.setup({
     },
     window = {
         -- uncomment the following if you want bordered completion options
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
+        completion = get_custom_border(),
+        documentation = get_custom_border(),
+    },
+    formatting = {
+        -- truncate characters in type information
+        format = lspkind.cmp_format({
+            with_text = true, -- do not show text alongside icons
+            maxwidth = 50,
+            before = function(entry, vim_item)
+                local m = vim_item.menu and vim_item.menu or ""
+                if #m > 20 then
+                    vim_item.menu = string.sub(m, 1, 20) .. "..."
+                end
+            return vim_item
+            end,
+    }),
     },
     mapping = cmp.mapping.preset.insert({
 	    ['<C-p>'] = cmp.mapping.select_prev_item({select = true}),
