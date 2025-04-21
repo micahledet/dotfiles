@@ -57,7 +57,17 @@ local plugins = {
 
     -- lualine status line replacement
     {'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' }}
+        dependencies = { 'nvim-tree/nvim-web-devicons' }},
+
+    -- HTTP client
+    { "rest-nvim/rest.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter",
+            opts = function (_, opts)
+            opts.ensure_installed = opts.ensure_installed or {}
+            table.insert(opts.ensure_installed, "http")
+            end,
+        },
+    }
 }
 
 require("lazy").setup(plugins, {})
