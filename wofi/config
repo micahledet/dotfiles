@@ -5,5 +5,5 @@ matching=fuzzy
 no_actions=true
 location=center
 columns=3
-width=800
-height=450
+width=850
+height=500
