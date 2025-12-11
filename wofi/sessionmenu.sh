@@ -14,5 +14,5 @@ case $op in
     lock)
 		swaylock;;
     logout)
-		wayland-logout;;
+		hyprctl dispatch exit;;
 esac

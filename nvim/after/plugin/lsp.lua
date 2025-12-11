@@ -63,3 +63,4 @@ lspconfig.lua_ls.setup({
 lspconfig.hls.setup {
   filetypes = { 'haskell', 'lhaskell', 'cabal'},
 }
+

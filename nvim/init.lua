@@ -22,6 +22,11 @@ vim.opt.clipboard = 'unnamedplus'
 -- keep signcolumn on by default
 --vim.opt.signcolumn = 'yes'
 
+-- diagnostics
+--vim.diagnostic.config({ virtual_text = false, virtual_lines = { current_line = true }, }) 
+vim.diagnostic.config({ virtual_text = true })
+
+
 -- hide -- MODE -- from below lualine
 vim.opt.showmode = false
 
